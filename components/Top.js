@@ -14,20 +14,20 @@ export default function Top({ title, detail, form }) {
     // email regexp validation
     if (email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
       // email is valid
-      const data = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
+      // const data = await fetch("/api/subscribe", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({ email }),
+      // });
       const res = await data.json();
-      if (res.success) {
-        alert(res.message);
-        document.getElementById("email").value = "";
-      } else {
-        alert(res.message);
-      }
+      // if (res.success) {
+      //   alert(res.message);
+      //   document.getElementById("email").value = "";
+      // } else {
+        alert("Thank you for your");
+      // }
     } else {
       alert("Invalid email address");
     }
@@ -49,25 +49,27 @@ export default function Top({ title, detail, form }) {
           <h1 className="xxl:text-6xl">{title}</h1>
           <p className="text-lg">{detail}</p>
           <hr className="w-1/4 mx-auto" />
-          {form && (
-            <form method="POST" className="flex flex-wrap justify-between overflow-hidden w-full mx-auto border-2 border-white bg-transparent rounded-full mt-4 md:mt-12" onSubmit={getStarted}>
-              <input
-                id="email"
-                type="email"
-                name="email"
-                // onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email Address"
-                className="w-2/3 md:w-4/5 p-2 pl-4 outline-none hover:outline-none focus:outline-none border-none bg-transparent text-white"
-              />
-              <button
-                className="w-1/3 md:w-1/5 p-2 bg-white text-sm md:text-lg font-medium text-[#522EC6]"
-              >
-                Get Started
-              </button>
-            </form>
-          )}
+         
         </div>
       </div>
     </section>
   );
 }
+
+// {form && (
+//   <form method="POST" className="flex flex-wrap justify-between overflow-hidden w-full mx-auto border-2 border-white bg-transparent rounded-full mt-4 md:mt-12" onSubmit={getStarted}>
+//     <input
+//       id="email"
+//       type="email"
+//       name="email"
+//       // onChange={(e) => setEmail(e.target.value)}
+//       placeholder="Email Address"
+//       className="w-2/3 md:w-4/5 p-2 pl-4 outline-none hover:outline-none focus:outline-none border-none bg-transparent text-white"
+//     />
+//     <button
+//       className="w-1/3 md:w-1/5 p-2 bg-white text-sm md:text-lg font-medium text-[#522EC6]"
+//     >
+//       Get Started
+//     </button>
+//   </form>
+// )}
