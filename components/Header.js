@@ -121,7 +121,7 @@ export default function Header() {
                           behavior: "smooth",
                           block: "start",
                         })
-                      : router.push("/");
+                      : router.push("/#works");
                   }}
                   className="block py-2 pr-4 pl-3 border-b md:border-0 md:p-0 text-gray-700 hover:bg-gray-700 hover:text-black md:hover:bg-transparent border-gray-700 cursor-pointer"
                 >
@@ -142,7 +142,7 @@ export default function Header() {
                           behavior: "smooth",
                           block: "start",
                         })
-                      : router.push("/");
+                      : router.push("/#about");
                   }}
                   className="block py-2 pr-4 pl-3 border-b md:border-0 md:p-0 text-gray-700 hover:bg-gray-700 hover:text-black md:hover:bg-transparent border-gray-700 cursor-pointer"
                 >
@@ -161,7 +161,7 @@ export default function Header() {
                           behavior: "smooth",
                           block: "start",
                         })
-                      : router.push("/");
+                      : router.push("/#services");
                   }}
                   className="block py-2 pr-4 pl-3 border-b md:border-0 md:p-0 text-gray-700 hover:bg-gray-700 hover:text-black md:hover:bg-transparent border-gray-700 cursor-pointer"
                 >
@@ -180,7 +180,7 @@ export default function Header() {
                           behavior: "smooth",
                           block: "start",
                         })
-                      : router.push("/");
+                      : router.push("/#clients");
                   }}
                   className="block py-2 pr-4 pl-3 border-b md:border-0 md:p-0 text-gray-700 hover:bg-gray-700 hover:text-black md:hover:bg-transparent border-gray-700 cursor-pointer"
                 >
@@ -200,7 +200,7 @@ export default function Header() {
                           behavior: "smooth",
                           block: "start",
                         })
-                      : router.push("/");
+                      : router.push("/#contact");
                   }}
                   className="block py-2 pr-4 pl-3 md:border-0 md:p-0 text-gray-700 hover:bg-gray-700 hover:text-white md:bg-gray-700 md:text-gray-300 md:hover:bg-slate-800 md:rounded-xl md:py-1 md:px-2 md:transition-all md:duration-200 md:ease-in cursor-pointer"
                 >

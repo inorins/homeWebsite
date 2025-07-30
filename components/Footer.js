@@ -11,8 +11,8 @@ export default function Footer() {
             <h5 className="text-xl font-bold sm:text-center md:text-left">
               Call Us
             </h5>
-            <a href="tel:9860101010" className="font-medium block mt-1">
-              01 5553734
+            <a href="tel:015453734" className="font-medium block mt-1">
+              01 5453734
             </a>
           </div>
           <div className="col-span-12 md:col-span-4 lg:col-span-3 mt-8 md:mt-0">

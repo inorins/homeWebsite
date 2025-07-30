@@ -6,7 +6,7 @@ export default function Index({ item }) {
   return (
     <>
       <Head>
-        <title>{item?.name}</title>
+        <title>{'Inorins Technologies Pvt. Ltd'}</title>
         <meta name="description" content={item?.description} />
         <meta name="keywords" content={item?.name} />
         <meta name="title" content={`${item?.name} - Inorins Technologies`} />
@@ -166,14 +166,147 @@ export default function Index({ item }) {
                     <li>OTP for each transaction</li>
                     <li>Maintaining log of all activities </li>
                   </ul>
-                </div>
-                {/* <div className="col-span-12 sm:col-span-6 lg:col-span-4">
-                <ul>
-                  <li></li>
-                </ul>
-              </div> */}
+                </div>                
               </>
             )}
+            {item?.name?.includes("Expected Credit Loss") && (
+            <>
+              <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+                <h3>System Architecture</h3>
+                <ul>
+                  <li>Central Database System based on Oracle RDBMS</li>
+                  <li>Multitier Architecture</li>
+                  <li>Web Based Application System</li>
+                </ul>
+              </div>
+              <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+                <h3>Application Security</h3>
+                <ul>
+                  <li>Roles and Privileges based on Departmental Functions</li>
+                  <li>Exposure to modules based on privilege only</li>
+                  <li>Maintaining log of all activities</li>
+                  <li>Audit trail of modified/deleted data</li>
+                  <li>Auto log off of the unattended system</li>
+                </ul>
+              </div>
+              <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+                <h3>Password Security</h3>
+                <ul>
+                  <li>Enforced Strong Password Combination</li>
+                  <li>Strongly Encrypted Password</li>
+                  <li>Periodic Password Change Rule</li>
+                  <li>Initial change of password provided by admin</li>
+                </ul>
+              </div>
+              <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+                <h3>Macroeconomic Indicator Management</h3>
+                <ul>
+                  <li>User definable list of macroeconomic Indicators</li>
+                  <li>User can configure effect of each indicator its weight on expected credit loss assessment</li>
+                  <li>
+                    User can set trend probability such as worst trend probability, normal trend probability, best trend probability for each macroeconomic indicators
+                  </li>
+                  <li>User can upload annual statistics and their data source for each indicator from excel file or can be directly recorded in the system through entry forms</li>
+                  <li>Once the annual statistics for macroeconomic data for particular year is recorded in the system, system can calculate statistical values such as mean, standard
+                    deviations, best, normal and worst forecasts as well as standardized, best, normal and worst forecasts for each indicator for each year.
+                  </li>
+                  <li>
+                    Further system can project these statistical values for number of future years as set by the user
+                  </li>
+                  <li>System can calculate multifactor standardized Score for a particular year as well as projection of multi-factor standardized Score for future years</li>
+                </ul>
+              </div>
+              <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+                <h3>Due Stage Management</h3>
+                <ul>
+                  <li>
+                    User can define different Due stages
+                  </li>
+
+                  <li>
+                    User can configure each due stage based on number of days a credit facility is being due, regulator enforced minimum default probability, number of months require to being upgraded from degraded stage etc.
+                  </li>
+
+                
+                </ul>
+              </div>
+              <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+                <h3>Portfolio Management</h3>
+                <ul>
+                  <li>
+                   User can define their own list of portfolios
+                  </li>
+                  <li>
+                   For each portfolio, user can configure effect of each macroeconomic indicator,
+Number of historical data required to calculate PD, type of base year records to be considered for PD calculation, Default Assessment Method, Correlation type to be considered for projecting PD etc.
+                  </li>
+                  <li>
+                   User can define portfolio segregation rules based on various parameters
+                  </li>
+                  <li>
+                    Based on configuration as per Users ECL Framework, the system automatically calculates effects of macroeconomic indicates on each portfolio as well as different types of PDs for each portfolios
+                  </li>
+                  
+                </ul>
+              </div>
+              <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+                <h3>Collateral Management</h3>
+                <ul>
+                  <li>User can define their own list of different Collateral Types</li>
+
+                  <li>
+                    User can configure effects of each macroeconomic indicators for each collateral types
+                  </li>
+                  <li>
+                    User can configure estimated distress percent, standard margin percent for administrative overhead expenses for the disposal of collateral, estimated period required for the disposal, regulator enforced maximum recovery percent for each collateral types
+                  </li>
+                  <li>User can define list of collateral valuation sources and assign different weightages for different valuation sources as well as applicable valuation sources for each collateral types</li>
+                  <li>
+                   User can map Collateral Types defined in existing Core Banking systems to Collaterals types defined in Inorins.ECLAS if any
+                  </li>                  
+                </ul>
+              </div>
+              <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+                <h3>Miscellaneous Setup</h3>
+                <ul>
+                  <li>User can define their one set of Credit Restructuring Type and Reasons.</li>
+                  <li>User can define their one set of Loan Loss Classes Reasons for presetting the LL Class to a particular credit facility.</li>
+                  <li>User can set Credit Classification in terms of Credit Types, Credit Sector, Credit Categories and map these to credit classification defined in existing Core Banking systems if any</li>
+                  <li>User can set up Client Classifications in terms of client Types, Client Sector, Client Categories and map these to client classification defined in existing Core Banking systems if any</li>
+                  <li>Further user can define their own list of Corporate groups, Occupation and map these to Corporate groups, Occupation defined in existing Core Banking systems if any</li>
+                  <li>Furthermore, for the ease of Reporting to regulatory bodies, the list of credit classification, collateral classification and client classification codes can be mapped to the list of classification used in Reports designed by the Regulatory body.</li>
+                </ul>
+              </div>
+               <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+                <h3>Credit Facility Management</h3>
+                <ul>
+                  <li>User can record Credit Restructure details for a credit facility or upload from excel file for bulk records</li>
+                  <li>User can record Loan Loss Class Presetting details for a credit facility or upload from excel file for bulk records</li>
+                  <li>User can record Qualitative Due Staging Detail of a credit facility or upload from excel file for bulk records</li>
+                  <li>User can record recent Valuation details of Collaterals used in a credit facility or upload from excel file for bulk records</li>
+                  <li>User can upload Credit Data containing due details from excel file</li>
+                   </ul>
+              </div>
+               <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+                <h3>ECL Assessment</h3>
+                <ul>
+                  <li>The system is capable of designing required ECL Models such as PD Models, LGD Models ,EAD Models, Staging Models</li>
+                  <li>ECL Estimation Framework</li>
+                  <li>Further system is able to calculate effective Interest Rate, Calculation/ Recalculation of Management Fee Amortization and Interest Income Recognition</li>
+                  <li>ECL assessment and Impairment can be done in easy to execute one single procedure</li>
+                  </ul>
+              </div>
+               <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+                <h3>Reports</h3>
+                <ul>
+                  <li>System can generate all the reports required for Regulatory Reporting</li>
+                  <li>System can generate all the report for the verification of ECL Assessment Process</li>
+                  <li>All the report can be exported into Excel file</li>
+                   </ul>
+              </div>
+            </>
+          )}
+            
           {item?.content?.length > 0 && (
             <div className="col-span-12">
               <h2 className="text-center">Additional Features</h2>

@@ -8,133 +8,9 @@ import Top from "../components/Top";
 import Features from "../components/Features";
 
 export default function Index() {
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
   const [toggle, setToggle] = useState(true);
 
-  function addcl() {
-    let parent = this.parentNode;
-    parent.classList.add("focus");
-  }
-
-  function remcl() {
-    let parent = this.parentNode;
-    if (this.value == "") {
-      parent.classList.remove("focus");
-    }
-  }
-  useEffect(() => {
-    const inputs = document.querySelectorAll("input");
-    const ta = document.querySelectorAll("textarea");
-
-    inputs.forEach((input) => {
-      input.addEventListener("focus", addcl);
-      input.addEventListener("blur", remcl);
-    });
-    ta.forEach((input) => {
-      input.addEventListener("focus", addcl);
-      input.addEventListener("blur", remcl);
-    });
-  }, []);
-
-  const SubmitContact = async (e) => {
-    e.preventDefault();
-    const values = e.target;
-    let name = e.target[0].value;
-    let email = e.target[1].value;
-    let message = e.target[2].value;
-
-    if (
-      !name ||
-      name.length === 0 ||
-      !email ||
-      email.length === 0 ||
-      !message ||
-      message.length === 0
-    ) {
-      return alert("Please fill all the fields");
-    }
-    // check only alphabets and space for name
-    if (!name?.match(/^[a-zA-Z ]+$/)) {
-      return alert("Please enter valid name");
-    }
-
-    // email validation
-    if (!email?.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
-      return alert("Please enter valid email");
-    }
-
-    const data = {
-      name,
-      email,
-      message,
-    };
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    const result = await res.json();
-    if (result.status) {
-      // empty all input values
-      e.target[0].value = "";
-      e.target[0].parentNode.classList.remove("focus");
-      e.target[1].value = "";
-      e.target[1].parentNode.classList.remove("focus");
-      e.target[2].value = "";
-      e.target[2].parentNode.classList.remove("focus");
-      return alert("Message sent successfully");
-    }
-    else {
-      alert(result?.message || "Something went wrong");
-    }
-  };
-
-  const features = [
-    {
-      id: 1,
-      name: "Basic",
-      price: "X",
-      content:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, aperiam. Eligendi quo ipsam ducimus mollitia. Perferendis tenetur alias, dignissimos dicta necessitatibus quam distinctio nostrum quia, obcaecati facere quisquam, blanditiis natus?",
-    },
-    {
-      id: 2,
-      name: "Standard",
-      price: "X",
-      content:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, aperiam. Eligendi quo ipsam ducimus mollitia. Perferendis tenetur alias, dignissimos dicta necessitatibus quam distinctio nostrum quia, obcaecati facere quisquam, blanditiis natus?",
-    },
-    {
-      id: 3,
-      name: "Premium",
-      price: "X",
-      content:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, aperiam. Eligendi quo ipsam ducimus mollitia. Perferendis tenetur alias, dignissimos dicta necessitatibus quam distinctio nostrum quia, obcaecati facere quisquam, blanditiis natus?",
-    },
-    // {
-    //   id: 11,
-    //   name: "Basic",
-    //   price: "X",
-    //   content:
-    //     "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, aperiam. Eligendi quo ipsam ducimus mollitia. Perferendis tenetur alias, dignissimos dicta necessitatibus quam distinctio nostrum quia, obcaecati facere quisquam, blanditiis natus?",
-    // },
-    // {
-    //   id: 12,
-    //   name: "Standard",
-    //   price: "X",
-    //   content:
-    //     "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, aperiam. Eligendi quo ipsam ducimus mollitia. Perferendis tenetur alias, dignissimos dicta necessitatibus quam distinctio nostrum quia, obcaecati facere quisquam, blanditiis natus?",
-    // },
-    // {
-    //   id: 13,
-    //   name: "Premium",
-    //   price: 100,
-    //   content:
-    //     "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, aperiam. Eligendi quo ipsam ducimus mollitia. Perferendis tenetur alias, dignissimos dicta necessitatibus quam distinctio nostrum quia, obcaecati facere quisquam, blanditiis natus?",
-    // },
-  ];
 
   return (
     <>
@@ -150,49 +26,6 @@ export default function Index() {
         form={true}
       />
 
-      {/* <section className="w-full h-[400px] md:min-h-screen hero" id="banner">
-        <div className="container mx-auto px-4 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-8 md:h-screen">
-          <div className="col-span-1 md:relative">
-            <div
-              className="lg:absolute lg:top-1/2 lg:left-1/2 w-full transform-css mt-20
-              md:mt-32 lg:mt-0"
-              // style={{ transform: "translate(-50%,-50%)" }}
-            >
-              <h1 className="text-center lg:text-left text-white xxl:text-6xl leading-tight">
-                Welcome to <br />
-                <span className="text-gray-50">Inorins Technologies</span>
-              </h1>
-              <p className="text-white text-center lg:text-left mb-0 mt-4 md:mt-12 xxl:text-2xl">
-                One of the best Core Banking System and financial service
-                provider in Nepal.
-              </p>
-              <div className="flex flex-wrap justify-between overflow-hidden w-full mx-auto border-2 border-white bg-transparent rounded-full mt-4 md:mt-12">
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email Address"
-                  className="w-2/3 md:w-4/5 p-2 pl-4 outline-none hover:outline-none focus:outline-none border-none bg-transparent text-white"
-                />
-                <button
-                  className="w-1/3 md:w-1/5 p-2 bg-white text-lg font-medium text-[#522EC6]"
-                  onClick={getStarted}
-                >
-                  Get Started
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="hidden col-span-1 lg:flex lg:items-center">
-            <img
-              src="/assets/sidebar.png"
-              alt=""
-              className="w-full h-3/4 object-contain"
-            />
-          </div>
-        </div>
-      </section> */}
 
       <section className="container mt-2 mx-auto px-4 lg:px-10 pt-16"  id="works">
         <h2 className="text-center">What We Do</h2>
@@ -231,10 +64,9 @@ export default function Index() {
               onClick={() => setToggle(!toggle)}
               title={toggle ? "Read More" : "Read Less"}
             >
-              {toggle ? "Read More" : "Read Less"} &rarr;
+              {toggle ? "Read More" : "Read Less"}
             </button>
           </div>
-          {/* <ReactWOW> */}
           <div className="col-span-1 flex flex-wrap justify-center items-center wow fadeInUp">
             <div className="pie" style={{ "--p": 80 }}>
               <span className="block text-2xl font-semibold mb-2">80 %</span>
@@ -249,7 +81,6 @@ export default function Index() {
               <span className="font-medium">Web Development</span>
             </div>
           </div>
-          {/* </ReactWOW> */}
         </div>
       </section>
 
@@ -257,39 +88,6 @@ export default function Index() {
       <Services />
       <Features />
 
-      {/* <section className="container mx-auto px-4 lg:px-10 mt-12 features">
-        <h2 className="text-center">Our Pricing</h2>
-        <div className="grid grid-cols-4 md:grid-cols-12 gap-4 lg:gap-8">
-          {features?.map((item) => (
-            <motion.div
-              className="features-box col-span-4"
-              key={item?.id}
-              ref={featureref}
-              animate={featuredcontrols}
-              variants={animateTop}
-              initial="hidden"
-            >
-              <div className="skewed">
-                <h2 className="uppercase absolute top-1/2 left-1/2 text-white text-2xl md:text-4xl">
-                  {item?.name}
-                </h2>
-              </div>
-
-              <div className="content p-2">
-                <span className="block text-center text-4xl mx-auto font-semibold mt-10">
-                  <span className="font-bold">{item?.price}</span> <sup>K</sup>
-                  <span className="text-5xl">/</span>
-                  <span className="text-3xl">Project</span>
-                </span>
-
-                <p className="mt-10 text-center text-lg font-medium leading-relaxed tracking-wide">
-                  {item?.content}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section> */}
 
       <section className="container mx-auto px-4 lg:px-10 pt-16" id="clients">
         <h2 className="text-center mb-6">Our Clients</h2>

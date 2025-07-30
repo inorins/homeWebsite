@@ -4,16 +4,19 @@ export default function Clients() {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    autoplaySpeed: 5000,
+    autoplay: true,
+    speed: 200,
     slidesToShow: 5,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     draggable: false,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1280,
         settings: {
           slidesToShow: 5,
-          slidesToScroll: 1,
+          slidesToScroll: 2,
           initialSlide: 5,
         },
       },
@@ -83,12 +86,24 @@ export default function Clients() {
       image: "/ganapati.png",
       site: "https://ganapatimicro.com.np/",
     },
+     {
+      id: 7,
+      name: "Durdristi Multipurpose Co-operative Ltd",
+      image: "/durdristi.png",
+      site: "https://ddmpcl.com.np/",
+    },
+     {
+      id: 8,
+      name: "Gurkha Finance Limited",
+      image: "/gurkha.png",
+      site: "https://www.gurkhasfinance.com.np/",
+    },
   ];
 
   return (
     <Slider {...settings}>
       {clients?.map((item) => (
-        <div className="px-2 outline-none" key={item?.id}>
+        <div className="px-1 outline-none" key={item?.id}>
           <a href={item?.site} target="_blank" rel="noreferrer">
             <img
               src={item?.image}
