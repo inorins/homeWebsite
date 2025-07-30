@@ -60,10 +60,10 @@ export const data = [
   ,
   {
     id: 8,
-    name: "Expected Credit Loss",
+    name: "Inorins ECLAS",
     slug: "ecl",
     description:
-      "ECL is a system for assessing expected credit losses based on NFRS-9 guidelines.",
+      "ECLAS is a system for assessing expected credit losses based on NFRS-9 guidelines.",
     image: "/assets/services/bank.png",
     content: ['Highly Parameterized', 'Functional Access Control', 'Strong Application Security', 'Friendlier Menu', 'Real Time Processing', 'Dual Date System', 'Natural Interfaces', 'Ad–hoc Queries']
   },

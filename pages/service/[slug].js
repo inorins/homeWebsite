@@ -169,7 +169,7 @@ export default function Index({ item }) {
                 </div>                
               </>
             )}
-            {item?.name?.includes("Expected Credit Loss") && (
+            {item?.name?.includes("Inorins ECLAS") && (
             <>
               <div className="col-span-12 sm:col-span-6 lg:col-span-4">
                 <h3>System Architecture</h3>
